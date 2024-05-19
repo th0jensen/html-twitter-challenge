@@ -89,6 +89,39 @@ header {
         }
       }
     }
+
+    button {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      height: 45px;
+      width: auto;
+      margin-top: 10px;
+      margin-left: 10px;
+      padding: 7.5px 20px;
+      color: white;
+      font-weight: bold;
+      background-color: var(--twitter-blue);
+      border: none;
+      border-radius: 20px;
+    }
+
+    .quill-button {
+      height: 45px;
+      width: 45px;
+      margin-left: 10px;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      background-color: var(--twitter-blue);
+
+      svg {
+        fill: white;
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 }
 
@@ -109,8 +142,23 @@ main {
       display: grid;
       justify-content: left;
       align-items: center;
+      grid-auto-flow: column;
       font-weight: bold;
       border-bottom: solid var(--custom-gray) 1px;
+
+      .logo-wrapper {
+        height: 50px;
+        display: grid;
+        justify-content: left;
+        align-items: center;
+        margin-left: 20px;
+
+        a {
+          img {
+            width: 26px;
+          }
+        }
+      }
 
       span {
         margin-left: 20px;
@@ -242,7 +290,7 @@ main {
             svg {
               width: 24px;
               height: 24px;
-              fill: darkgray;
+              fill: black;
               padding: 5px;
 
               &:hover {
@@ -360,6 +408,16 @@ footer {
   }
 }
 
+@media (min-width: 1000px) {
+  header {
+    .navigation-items {
+      .quill-button {
+        display: none;
+      }
+    }
+  }
+}
+
 @media (max-width: 1000px) {
   .page-wrapper {
     grid-template-columns: 66px 1fr 1fr;
@@ -375,10 +433,15 @@ footer {
 
       .navigation-items {
         grid-column: 1 / -1;
+
         a {
           span {
             display: none;
           }
+        }
+
+        button {
+          display: none;
         }
       }
     }
@@ -395,6 +458,39 @@ footer {
     }
     footer {
       left: calc(500px + 66px);
+    }
+  }
+}
+
+@media (max-width: 566px) {
+  .page-wrapper {
+    grid-template-columns: 1fr;
+
+    header {
+      display: none;
+    }
+
+    main {
+      width: auto;
+      grid-column: 1 / -1;
+    }
+  }
+
+  .tweet-reactions {
+    span {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 567px) {
+  main {
+    .content-wrapper {
+      .content-header {
+        .logo-wrapper {
+          display: none;
+        }
+      }
     }
   }
 }
